@@ -1,5 +1,5 @@
 import SignUpFormProvider from "@/components/forms/sign-up/form-provider";
-import React from "react";
+import RegistrationFormStep from "@/components/forms/sign-up/registration-step";
 
 type Props = {};
 
@@ -9,7 +9,7 @@ const SignUp = (props: Props) => {
       <div className="flex flex-col h-full gap-3">
         <SignUpFormProvider>
           <div className="flex flex-col gap-3">
-            {/* <RegistrationFormStep></RegistrationFormStep> */}
+            {/* <RegistrationFormStep /> */}
           </div>
         </SignUpFormProvider>
       </div>
