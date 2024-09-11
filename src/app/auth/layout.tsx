@@ -19,7 +19,7 @@ const Layout = async ({ children }: Props) => {
           src="/images/logo.png"
           alt="LOGO"
           sizes="100vw"
-          style={{ width: "20%", height: "auto" }}
+          style={{ width: "30%", height: "auto" }}
           width={0}
           height={0}
         />
