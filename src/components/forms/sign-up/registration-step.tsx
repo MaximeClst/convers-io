@@ -8,8 +8,7 @@ import { useFormContext } from "react-hook-form";
 import TypeSelectionForm from "./type-selection-form";
 
 const DetailForm = dynamic(() => import("./account-details-form"), {
-  ssr: false,import OTPForm from './otp-form';
-
+  ssr: false,
   loading: Spinner,
 });
 

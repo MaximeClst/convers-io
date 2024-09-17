@@ -1,16 +1,16 @@
 "use client";
 
+import { onCompleteUserRegistration } from "@/actions/auth";
 import { useToast } from "@/components/ui/use-toast";
 import {
   UserRegistrationProps,
   UserRegistrationSchema,
 } from "@/schemas/auth.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useSignUp } from "@clerk/nextjs";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { onCompleteUserRegistration } from "@/actions/auth";
 
 export const useSignUpForm = () => {
   const { toast } = useToast();
@@ -41,12 +41,11 @@ export const useSignUpForm = () => {
       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
 
       onNext((prev) => prev + 1);
+      alert("Running");
     } catch (error) {
-      const errMessage = (error as { errors: { longMessage: string }[] })
-        .errors[0].longMessage;
       toast({
         title: "Error",
-        description: errMessage,
+        description: (error as Error).message,
       });
     }
   };
@@ -99,7 +98,7 @@ export const useSignUpForm = () => {
         } else {
           toast({
             title: "Error",
-            description: "An unknown error occurred.",
+            description: "An unknown error occurred",
           });
         }
       }
